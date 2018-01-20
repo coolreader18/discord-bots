@@ -1,0 +1,5 @@
+{
+  "rules": [
+    "./node_modules/non-amp-site/canonical.js"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "discord.js": "^11.3.0",
+    "epichal": "^0.1.0",
+    "non-amp-site": "^1.0.1"
+  },
+  "main": "index.js"
+}
