@@ -6,11 +6,11 @@ clear = new Set(),
 listen = new Set();
 
 const bot = new Bot(tokens.hal, {
-  message: ({content: cont, channel, author}) => {
+  message: ({content, channel, author}) => {
     if (listen.has(channel.id)) {
       if (author.id != 403978213300371466) {
-        if (cont.startsWith("!hal ")) {
-          var [command, ...args] = cont.split(" ").splice(1),
+        if (content.startsWith("!hal ")) {
+          var [command, ...args] = content.split(" ").splice(1),
           reply = int => hal.reply(int, (a, rep) => {if (rep) channel.send(rep)});
           args = args.join(" ")
           switch (command.toLowerCase()) {
@@ -34,13 +34,13 @@ const bot = new Bot(tokens.hal, {
               listen.delete(channel.id)
               break;
             default:
-              reply(cont)
+              reply(content)
           }
         } else {
-          learn(cont)
+          learn(content)
         }
       }
-    } else if (cont.startsWith("!hal listen")) {
+    } else if (content.startsWith("!hal listen")) {
       listen.add(channel.id)
     }
   },
