@@ -8,7 +8,7 @@ listen = new Set();
 const bot = new Bot(tokens.hal, {
   message: ({content, channel, author}) => {
     if (listen.has(channel.id)) {
-      if (author.id != 403978213300371466) {
+      if (!author.bot) {
         if (content.startsWith("!hal ")) {
           var [command, ...args] = content.split(" ").splice(1),
           reply = int => hal.reply(int, (a, rep) => {if (rep) channel.send(rep)});
