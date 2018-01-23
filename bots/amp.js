@@ -3,13 +3,12 @@ const got = require('got');
 const nonAmp = require('non-amp-site');
 
 const bot = new Bot(tokens.amp, {
-  message: message => {
-    var {content: cont, channel} = message;
+  message: async ({content: cont, channel, reply}) => {
     if (cont.startsWith('!amp')) {
       if (cont.match(/^!amp .+/)) {
-        nonAmp(cont.replace(/!amp /, "")).then(channel.send)
+        channel.send(`non-amp version: ${await nonAmp(cont.replace(/!amp /, ""))}`)
       } else {
-        message.reply("indeed, my good sir :tophat: :champagne_glass:");
+        reply("indeed, my good sir :tophat: :champagne_glass:");
       }
     }
   }
