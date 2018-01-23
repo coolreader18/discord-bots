@@ -2,7 +2,13 @@
   "dependencies": {
     "discord.js": "^11.3.0",
     "epichal": "^0.1.0",
-    "non-amp-site": "^1.0.1"
+    "load-json-file": "^4.0.0",
+    "non-amp-site": "^1.0.4",
+    "prompt": "^1.0.0",
+    "write-json-file": "^2.3.0"
   },
-  "main": "index.js"
+  "main": "index.js",
+  "scripts": {
+    "bot": "node bot"
+  }
 }
