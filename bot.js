@@ -41,10 +41,32 @@ switch (arg) {
       message.channel.send("hey")
     }
   }
-})`)
-            }
+})`
+            )
           }
         }
-      })
-      break;
+      }
+    })
+    break;
+  case "delete":
+    var arr = [],
+    name;
+    if (args[0]) {
+      name = args[0]
+    } else {
+      arr.push('name')
+    }
+    prompt.start()
+    prompt.get(arr, (err, result) => {
+      if (result) {
+        name = name || result.name;
+      }
+      if (!err) {
+        var tokens = jsonfile.load.sync("tokens.json");
+        delete tokens[name];
+        jsonfile.write.sync("tokens.json", tokens);
+        fs.unlinkSync(`bots/${name}.js`)
+      }
+    })
+    break;
 }
