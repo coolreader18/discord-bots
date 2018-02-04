@@ -1,6 +1,6 @@
 const got = require('got');
 const nonAmp = require('non-amp-site');
-const validUrl = require('valid-url');
+const {URL} = require('url');
 
 const bot = new Bot(tokens.amp, {
   message: async ({content, channel}) => {
@@ -18,10 +18,14 @@ const bot = new Bot(tokens.amp, {
         let msgs = channel.messages.array();
         loop1:
         for (var i = 2;;i++) {
-          let uri = validUrl.isWebUri(msgs[msgs.length - i].content);
-          if (uri) {
-            nonamp(uri)
+          try {
+            let new URI(msgs[msgs.length - i].content);
+            nonamp(uri);
             break loop1;
+          } catch (err) {
+            if (err.code != "ERR_INVALID_URL") {
+              throw err;
+            }
           }
         }
       }

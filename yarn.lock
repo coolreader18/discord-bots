@@ -620,10 +620,6 @@ utile@0.3.x:
     ncp "1.0.x"
     rimraf "2.x.x"
 
-valid-url@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/valid-url/-/valid-url-1.0.9.tgz#1c14479b40f1397a75782f115e4086447433a200"
-
 winston@2.1.x:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/winston/-/winston-2.1.1.tgz#3c9349d196207fd1bdff9d4bc43ef72510e3a12e"
